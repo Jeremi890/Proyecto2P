@@ -1,0 +1,13 @@
+/**
+ * ==============================================================================
+ * SISTEMA DE DISEÑO VANILLA CSS PREMIUM - NEXUSSTOCK MVC
+ * Estética: Clean Light Mode, Sidebar Layout, Iconos Boxicons
+ * (Los estilos han sido modularizados)
+ * ==============================================================================
+ */
+
+@import url('variables.css');
+@import url('base.css');
+@import url('layout.css');
+@import url('components.css');
+
