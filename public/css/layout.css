@@ -10,7 +10,7 @@
 
 .sidebar {
     width: 260px;
-    background: #ffffff;
+    background: var(--bg-card);
     border-right: 1px solid var(--border-color);
     display: flex;
     flex-direction: column;
@@ -128,7 +128,7 @@
    ========================================================================== */
 .footer {
     margin-top: auto;
-    background: #ffffff;
+    background: var(--bg-card);
     border-top: 1px solid var(--border-color);
     padding: 1.5rem 0;
     text-align: center;

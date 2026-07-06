@@ -1,7 +1,5 @@
 /**
- * ==============================================================================
  * VARIABLES Y FUENTES
- * ==============================================================================
  */
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
@@ -45,4 +43,21 @@
     --radius-full: 9999px;
     
     --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-theme="dark"] {
+    --bg-main: #0f172a;
+    --bg-card: #1e293b;
+    --bg-card-hover: #27354f;
+    --border-color: rgba(255, 255, 255, 0.1);
+    
+    --text-main: #cbd5e1;
+    --text-muted: #94a3b8;
+    --text-dark: #f8fafc;
+    
+    /* Adaptaciones de fondo para badges en modo oscuro */
+    --success-bg: rgba(5, 150, 105, 0.2);
+    --warning-bg: rgba(217, 119, 6, 0.2);
+    --danger-bg: rgba(220, 38, 38, 0.2);
+    --info-bg: rgba(37, 99, 235, 0.2);
 }

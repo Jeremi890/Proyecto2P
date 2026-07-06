@@ -1,14 +1,13 @@
 /**
- * ==============================================================================
- * ARCHIVO DE INTERACTIVIDAD JS (CLIENT-SIDE) - NEXUSSTOCK MVC
+ * ARCHIVO DE INTERACTIVIDAD JS
  * Manejo de Modales de Confirmación, Alertas Toast flotantes y UX Dinámica
- * ==============================================================================
  */
 
 document.addEventListener('DOMContentLoaded', () => {
     initFlashMessages();
     initDeleteModals();
     initLiveSearch();
+    initThemeToggle();
 });
 
 /**
@@ -79,7 +78,7 @@ function initDeleteModals() {
 }
 
 /**
- * 3. Filtro interactivo rápido en tablas del cliente (Live Search de tablas)
+ * 3. Filtro interactivo rápido en tablas del cliente
  */
 function initLiveSearch() {
     const searchInput = document.getElementById('tableQuickFilter');
@@ -103,3 +102,42 @@ function initLiveSearch() {
         }
     });
 }
+
+/**
+ * 4. Toggle de Tema Oscuro/Claro
+ */
+function initThemeToggle() {
+    const themeBtn = document.getElementById('themeToggleBtn');
+    if (!themeBtn) return;
+
+    const icon = themeBtn.querySelector('i');
+    const textSpan = themeBtn.querySelector('span');
+
+    // Inicializar UI basada en tema actual
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    if (isDark) {
+        icon.classList.replace('bx-moon', 'bx-sun');
+        textSpan.textContent = 'Modo Claro';
+    }
+
+    themeBtn.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        let targetTheme = 'light';
+        
+        if (currentTheme !== 'dark') {
+            targetTheme = 'dark';
+            icon.classList.replace('bx-moon', 'bx-sun');
+            textSpan.textContent = 'Modo Claro';
+        } else {
+            icon.classList.replace('bx-sun', 'bx-moon');
+            textSpan.textContent = 'Modo Oscuro';
+            document.documentElement.removeAttribute('data-theme'); // Elimina el atributo para usar el default
+        }
+
+        if (targetTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+        localStorage.setItem('nexusTheme', targetTheme);
+    });
+}
+

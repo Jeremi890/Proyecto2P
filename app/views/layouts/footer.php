@@ -1,8 +1,6 @@
             </main>
 
-            <!-- ==========================================================================
-                 PIE DE PÁGINA DEL SISTEMA
-                 ========================================================================== -->
+<!-- PIE DE PÁGINA DEL SISTEMA -->
             <footer class="footer">
                 <div style="padding: 0 1.5rem; display: flex; flex-direction: column; align-items: center;">
                     <p><strong>NexusStock MVC</strong> &copy; <?= date('Y') ?> | Proyecto de Segundo Parcial</p>
@@ -14,9 +12,7 @@
         </div> <!-- End main-wrapper -->
     </div> <!-- End app-layout -->
 
-    <!-- ==========================================================================
-         VENTANA MODAL DE CONFIRMACIÓN PARA ELIMINAR REGISTROS (CRUD)
-         ========================================================================== -->
+    <!-- VENTANA MODAL DE CONFIRMACIÓN PARA ELIMINAR REGISTROS (CRUD) -->
     <div class="modal-overlay" id="deleteModal">
         <div class="modal-box">
             <div style="font-size: 3.5rem; text-align: center; margin-bottom: 0.5rem; color: var(--warning);"><i class='bx bx-error-circle'></i></div>
@@ -36,7 +32,7 @@
     </div>
 
     <!-- Scripts del Sistema -->
-    <script src="<?= url('js/app.js') ?>"></script>
+    <script src="<?= url('js/app.js?v=' . time()) ?>"></script>
     <script src="<?= url('js/validations.js') ?>"></script>
 </body>
 </html>

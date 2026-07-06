@@ -10,17 +10,22 @@ $activeMenu = $active_menu ?? 'home';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= e($page_title ?? 'NexusStock MVC | Control Inteligente de Inventario') ?></title>
     <!-- Estilos Premium de la Aplicación -->
-    <link rel="stylesheet" href="<?= url('css/styles.css') ?>">
+    <link rel="stylesheet" href="<?= url('css/styles.css?v=' . time()) ?>">
     <!-- Iconos de Google Fonts / Boxicons (Opción ligera y estética) -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Script inline para evitar parpadeo al cargar el tema oscuro -->
+    <script>
+        const savedTheme = localStorage.getItem('nexusTheme') || 'light';
+        if (savedTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+    </script>
 </head>
 <body>
 
     <div class="app-layout">
-        <!-- ==========================================================================
-             BARRA LATERAL (SIDEBAR)
-             ========================================================================== -->
+        <!-- BARRA LATERAL (SIDEBAR) -->
         <aside class="sidebar">
             <div class="sidebar-header">
                 <a href="<?= url('') ?>" class="brand">
@@ -58,11 +63,15 @@ $activeMenu = $active_menu ?? 'home';
                     </li>
                 </ul>
             </nav>
+            
+            <div style="padding: 1.5rem 1rem; border-top: 1px solid var(--border-color);">
+                <button id="themeToggleBtn" class="btn btn-secondary" style="width: 100%; justify-content: flex-start; border: none; background: transparent; padding: 0.85rem 1rem; color: var(--text-muted);">
+                    <i class='bx bx-moon' style="font-size: 1.25rem;"></i> <span>Modo Oscuro</span>
+                </button>
+            </div>
         </aside>
 
-        <!-- ==========================================================================
-             CONTENEDOR PRINCIPAL DEL SISTEMA
-             ========================================================================== -->
+        <!-- CONTENEDOR PRINCIPAL DEL SISTEMA -->
         <div class="main-wrapper">
             <main class="main-content">
                 <?php if ($flash): ?>
