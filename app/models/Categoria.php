@@ -1,9 +1,7 @@
 <?php
 /**
- * ==============================================================================
  * MODELO: Categoria
  * Gestión de acceso a datos para la tabla 'categorias' usando PDO
- * ==============================================================================
  */
 class Categoria {
     /** @var Database */

@@ -1,10 +1,8 @@
 <?php
 /**
- * ==============================================================================
  * MODELO: Movimiento
  * Gestión de transacciones de inventario (Entradas, Salidas y Ajustes)
  * Implementa Transacciones SQL (Begin / Commit / Rollback) para garantizar integridad
- * ==============================================================================
  */
 class Movimiento {
     /** @var Database */

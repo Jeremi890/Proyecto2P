@@ -2,10 +2,8 @@
 require_once __DIR__ . '/Controller.php';
 
 /**
- * ==============================================================================
  * CONTROLADOR: CategoriaController
  * Módulo de Gestión de Categorías (CRUD completo + Validaciones Backend)
- * ==============================================================================
  */
 class CategoriaController extends Controller {
     /** @var Categoria */

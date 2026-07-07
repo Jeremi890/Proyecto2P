@@ -2,10 +2,8 @@
 require_once __DIR__ . '/Controller.php';
 
 /**
- * ==============================================================================
  * CONTROLADOR: MovimientoController
  * Módulo de Operaciones Transaccionales (Entradas, Salidas y Control Automático de Stock)
- * ==============================================================================
  */
 class MovimientoController extends Controller {
     /** @var Movimiento */

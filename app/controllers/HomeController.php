@@ -2,11 +2,9 @@
 require_once __DIR__ . '/Controller.php';
 
 /**
- * ==============================================================================
  * CONTROLADOR: HomeController
  * Módulo de Inicio / Dashboard Principal
  * Muestra métricas financieras, alertas de inventario y actividad reciente
- * ==============================================================================
  */
 class HomeController extends Controller {
     /** @var Producto */

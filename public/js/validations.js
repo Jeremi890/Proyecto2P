@@ -1,8 +1,6 @@
 /**
- * ==============================================================================
  * ARCHIVO DE VALIDACIONES FRONTEND - NEXUSSTOCK MVC
- * Validaciones en tiempo real para formularios (HTML5/Vanilla JS)
- * ==============================================================================
+ * Validaciones en tiempo real para formularios
  */
 
 document.addEventListener('DOMContentLoaded', () => {

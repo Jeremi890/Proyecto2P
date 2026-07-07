@@ -2,10 +2,8 @@
 require_once __DIR__ . '/Controller.php';
 
 /**
- * ==============================================================================
  * CONTROLADOR: ProveedorController
  * Módulo de Gestión de Proveedores (Directorio comercial y validación RUC/NIT)
- * ==============================================================================
  */
 class ProveedorController extends Controller {
     /** @var Proveedor */

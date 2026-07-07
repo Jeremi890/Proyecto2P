@@ -1,9 +1,7 @@
 <?php
 /**
- * ==============================================================================
- * CONTROLADOR BASE - NEXUSSTOCK MVC
+ * CONTROLADOR BASE
  * Clase padre para todos los controladores. Encapsula el renderizado de vistas y paso de datos.
- * ==============================================================================
  */
 class Controller {
     

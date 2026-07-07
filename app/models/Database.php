@@ -16,7 +16,7 @@ class Database {
      * Constructor privado para aplicar el patrón Singleton
      */
     private function __construct() {
-        $dsn = "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=" . DB_CHARSET;
+        $dsn = "mysql:host=" . DB_HOST . ";port=" . DB_PORT . ";dbname=" . DB_NAME . ";charset=" . DB_CHARSET;
         $options = [
             PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION, // Lanzar excepciones en errores
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ,         // Retornar objetos por defecto ($fila->campo)

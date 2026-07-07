@@ -1,10 +1,8 @@
 <?php
 /**
- * ==============================================================================
- * ENRUTADOR PRINCIPAL (FRONT CONTROLLER) - NEXUSSTOCK MVC
+ * ENRUTADOR PRINCIPAL (FRONT CONTROLLER)
  * Punto de entrada único para todas las peticiones HTTP de la aplicación.
  * Implementa el patrón Front Controller para despachar rutas al Controlador y Acción adecuados.
- * ==============================================================================
  */
 
 // 1. Cargar archivo de configuración global

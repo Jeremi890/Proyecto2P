@@ -22,9 +22,7 @@
     </div>
 </div>
 
-<!-- ==========================================================================
-     BARRA DE FILTROS Y BÚSQUEDA INTERACTIVA
-     ========================================================================== -->
+<!-- BARRA DE FILTROS Y BÚSQUEDA INTERACTIVA -->
 <div class="card" style="margin-bottom: 1.5rem; padding: 1.25rem;">
     <form method="GET" action="<?= url('producto/index') ?>" style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
         <div style="flex: 1; min-width: 250px;">
@@ -49,9 +47,7 @@
     </form>
 </div>
 
-<!-- ==========================================================================
-     TABLA PRINCIPAL DEL CATÁLOGO DE PRODUCTOS
-     ========================================================================== -->
+<!-- TABLA PRINCIPAL DEL CATÁLOGO DE PRODUCTOS -->
 <div class="card">
     <div class="card-header">
         <div class="card-title"><i class='bx bx-list-ul'></i> Inventario Físico Valorado</div>

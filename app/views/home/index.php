@@ -23,9 +23,7 @@
     </div>
 </div>
 
-<!-- ==========================================================================
-     TARJETAS DE MÉTRICAS GLOBALES (STAT CARDS)
-     ========================================================================== -->
+<!-- TARJETAS DE MÉTRICAS GLOBALES (STAT CARDS) -->
 <div class="stats-grid">
     <div class="stat-card">
         <div class="stat-icon blue"><i class='bx bx-box'></i></div>
@@ -68,9 +66,7 @@
     </div>
 </div>
 
-<!-- ==========================================================================
-     ALERTA ROJA DE STOCK CRÍTICO (SE MUESTRA SÓLO SI HAY PRODUCTOS AGOTÁNDOSE)
-     ========================================================================== -->
+<!-- ALERTA ROJA DE STOCK CRÍTICO (SE MUESTRA SÓLO SI HAY PRODUCTOS AGOTÁNDOSE)-->
 <?php if (!empty($alertasStock)): ?>
 <div class="card" style="margin-bottom: 2rem; border-color: rgba(239, 68, 68, 0.4); background: #fff5f5;">
     <div class="card-header" style="border-bottom-color: rgba(239, 68, 68, 0.2);">
@@ -124,9 +120,7 @@
 </div>
 <?php endif; ?>
 
-<!-- ==========================================================================
-     SECCIÓN DE ACTIVIDAD RECIENTE Y ACCESOS RÁPIDOS
-     ========================================================================== -->
+<!-- SECCIÓN DE ACTIVIDAD RECIENTE Y ACCESOS RÁPIDOS -->
 <div style="display: grid; grid-template-columns: 1fr; gap: 1.5rem; align-items: start;">
     <!-- Últimos Movimientos -->
     <div class="card">

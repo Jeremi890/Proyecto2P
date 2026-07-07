@@ -1,10 +1,8 @@
 <?php
 /**
- * ==============================================================================
  * MODELO: Producto
  * Gestión de acceso a datos para la tabla 'productos' usando PDO
  * Contiene consultas con JOIN, control de stock y estadísticas para el Dashboard
- * ==============================================================================
  */
 class Producto {
     /** @var Database */

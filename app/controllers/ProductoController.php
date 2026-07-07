@@ -2,10 +2,8 @@
 require_once __DIR__ . '/Controller.php';
 
 /**
- * ==============================================================================
  * CONTROLADOR: ProductoController
  * Módulo Central de Inventario (Gestión de Productos, Precios, Stock y Alertas)
- * ==============================================================================
  */
 class ProductoController extends Controller {
     /** @var Producto */

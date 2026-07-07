@@ -15,10 +15,11 @@ if (session_status() === PHP_SESSION_NONE) {
 date_default_timezone_set('America/Lima');
 
 // Configuración de Parámetros de la Base de Datos MySQL
-define('DB_HOST', 'localhost');
-define('DB_USER', 'root');       // Usuario por defecto en XAMPP/Laragon
-define('DB_PASS', '');           // Contraseña por defecto en XAMPP/Laragon
-define('DB_NAME', 'nexusstock_db');
+define('DB_HOST', getenv('DB_HOST') ?: 'localhost');
+define('DB_PORT', getenv('DB_PORT') ?: '3306');
+define('DB_USER', getenv('DB_USER') ?: 'root');
+define('DB_PASS', getenv('DB_PASS') ?: ''); 
+define('DB_NAME', getenv('DB_NAME') ?: 'nexusstock_db');
 define('DB_CHARSET', 'utf8mb4');
 
 // Configuración de la URL Base de la Aplicación

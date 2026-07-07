@@ -1,9 +1,7 @@
 <?php
 /**
- * ==============================================================================
  * MODELO: Proveedor
  * Gestión de acceso a datos para la tabla 'proveedores' usando PDO
- * ==============================================================================
  */
 class Proveedor {
     /** @var Database */
