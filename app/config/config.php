@@ -24,7 +24,8 @@ define('DB_CHARSET', 'utf8mb4');
 
 // Configuración de la URL Base de la Aplicación
 // Detecta dinámicamente si se ejecuta en servidor integrado o en subcarpeta de Apache
-$protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https://' : 'http://';
+$isHttps = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') || (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https');
+$protocol = $isHttps ? 'https://' : 'http://';
 $host = $_SERVER['HTTP_HOST'] ?? 'localhost:8000';
 $scriptName = $_SERVER['SCRIPT_NAME'] ?? '';
 $baseDir = dirname($scriptName);
