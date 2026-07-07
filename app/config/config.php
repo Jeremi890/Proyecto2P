@@ -51,6 +51,11 @@ function url(string $path = '') {
         return BASE_URL . '/' . $path;
     }
     
+    // Si la ruta contiene un '?', debemos cambiarlo por '&' para que no rompa el query string
+    if (strpos($path, '?') !== false) {
+        $path = preg_replace('/\?/', '&', $path, 1);
+    }
+    
     // Para todas las demás rutas MVC, inyectar el controlador frontal explícitamente
     return BASE_URL . '/index.php?url=' . $path;
 }
