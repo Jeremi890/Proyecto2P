@@ -5,7 +5,7 @@
                 <div style="padding: 0 1.5rem; display: flex; flex-direction: column; align-items: center;">
                     <p><strong>NexusStock MVC</strong> &copy; <?= date('Y') ?> | Proyecto de Segundo Parcial</p>
                     <p style="font-size: 0.75rem; margin-top: 0.35rem; color: var(--text-muted);">
-                        Desarrollado con Patrón MVC nativo y Vanilla CSS Premium.
+                        Desarrollado con Patrón MVC nativo.
                     </p>
                 </div>
             </footer>
