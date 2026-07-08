@@ -12,12 +12,9 @@
         <h1 style="font-size: 2rem; font-weight: 700; color: var(--text-dark); margin: 0;">Catálogo de Productos</h1>
         <p style="color: var(--text-muted); margin-top: 0.25rem;">Control general de existencias, costos y alertas de stock mínimo.</p>
     </div>
-    <div style="display: flex; gap: 0.75rem;">
+    <div>
         <a href="<?= url('movimiento/create') ?>" class="btn btn-success">
-            <i class='bx bx-transfer'></i> Mover Stock
-        </a>
-        <a href="<?= url('producto/create') ?>" class="btn btn-primary">
-            <i class='bx bx-plus'></i> Nuevo Producto
+            <i class='bx bx-transfer'></i> Mover / Ingresar Stock
         </a>
     </div>
 </div>
@@ -25,6 +22,7 @@
 <!-- BARRA DE FILTROS Y BÚSQUEDA INTERACTIVA -->
 <div class="card" style="margin-bottom: 1.5rem; padding: 1.25rem;">
     <form method="GET" action="<?= url('producto/index') ?>" style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+        <input type="hidden" name="url" value="producto/index">
         <div style="flex: 1; min-width: 250px;">
             <input type="text" name="search" class="form-control" placeholder="Buscar por código SKU, nombre o descripción..." value="<?= e($filtro_search ?? '') ?>">
         </div>
@@ -56,12 +54,11 @@
         </div>
     </div>
 
-    <?php if (empty($productos)): ?>
         <div style="text-align: center; padding: 3.5rem 1rem; color: var(--text-muted);">
             <div style="font-size: 3.5rem; margin-bottom: 0.5rem;"><i class='bx bx-box'></i></div>
             <h3 style="color: var(--text-dark); margin-bottom: 0.5rem;">No se encontraron productos en el catálogo</h3>
-            <p style="margin-bottom: 1.5rem;">Agrega tu primer artículo para activar las estadísticas y transacciones del almacén.</p>
-            <a href="<?= url('producto/create') ?>" class="btn btn-primary">Registrar Primer Producto</a>
+            <p style="margin-bottom: 1.5rem;">Registra tu primer ingreso de mercancía desde el módulo de Movimientos para nutrir el inventario.</p>
+            <a href="<?= url('movimiento/create') ?>" class="btn btn-success"><i class='bx bx-transfer'></i> Ir a Registrar Movimiento / Ingreso</a>
         </div>
     <?php else: ?>
         <div class="table-responsive">

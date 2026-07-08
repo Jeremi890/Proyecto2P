@@ -14,11 +14,8 @@
         <p style="color: var(--text-muted); margin-top: 0.25rem;">Bienvenido al sistema inteligente de gestión. Aquí tienes el resumen en tiempo real.</p>
     </div>
     <div style="display: flex; gap: 0.75rem;">
-        <a href="<?= url('producto/create') ?>" class="btn btn-primary">
-            <i class='bx bx-plus'></i> Nuevo Producto
-        </a>
         <a href="<?= url('movimiento/create') ?>" class="btn btn-success">
-            <i class='bx bx-transfer'></i> Registrar Movimiento
+            <i class='bx bx-transfer'></i> Registrar Movimiento / Ingreso
         </a>
     </div>
 </div>
