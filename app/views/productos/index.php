@@ -54,6 +54,7 @@
         </div>
     </div>
 
+    <?php if (empty($productos)): ?>
         <div style="text-align: center; padding: 3.5rem 1rem; color: var(--text-muted);">
             <div style="font-size: 3.5rem; margin-bottom: 0.5rem;"><i class='bx bx-box'></i></div>
             <h3 style="color: var(--text-dark); margin-bottom: 0.5rem;">No se encontraron productos en el catálogo</h3>
