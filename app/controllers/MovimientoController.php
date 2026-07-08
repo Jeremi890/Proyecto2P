@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/Controller.php';
+require_once __DIR__ . '/../models/Categoria.php';
 
 /**
  * CONTROLADOR: MovimientoController
@@ -14,11 +15,15 @@ class MovimientoController extends Controller {
     
     /** @var Proveedor */
     private $proveedorModel;
+    
+    /** @var Categoria */
+    private $categoriaModel;
 
     public function __construct() {
         $this->model = new Movimiento();
         $this->productoModel = new Producto();
         $this->proveedorModel = new Proveedor();
+        $this->categoriaModel = new Categoria();
     }
 
     /**
@@ -41,10 +46,11 @@ class MovimientoController extends Controller {
         $error = null;
         $productos = $this->productoModel->getAll();
         $proveedores = $this->proveedorModel->getAll();
+        $categorias = $this->categoriaModel->getAll();
 
-        if (empty($productos)) {
-            set_flash_message('warning', '⚠️ No puedes registrar movimientos porque no hay productos en el catálogo.');
-            redirect('producto/create');
+        if (empty($categorias)) {
+            set_flash_message('warning', '⚠️ Debes crear al menos una categoría antes de registrar ingresos en Movimientos.');
+            redirect('categoria/create');
         }
 
         $data = [
@@ -67,7 +73,51 @@ class MovimientoController extends Controller {
                 'comprobante_url' => null
             ];
 
-            $productoSeleccionado = $this->productoModel->getById($data['producto_id']);
+            $productoSeleccionado = null;
+            $modo_ingreso = $_POST['modo_ingreso'] ?? 'existente';
+
+            if ($data['tipo_movimiento'] === 'ENTRADA' && $modo_ingreso === 'nuevo') {
+                // El usuario está creando un artículo nuevo desde el ingreso de mercadería
+                $codigo = strtoupper(trim($_POST['nuevo_codigo'] ?? ''));
+                $nombre = trim($_POST['nuevo_nombre'] ?? '');
+                $categoria_id = (int)($_POST['nuevo_categoria_id'] ?? 0);
+                $unidad = trim($_POST['nuevo_unidad'] ?? 'Unidad');
+                $precio_venta = (float)($_POST['nuevo_precio_venta'] ?? 0);
+                
+                if (empty($codigo) || empty($nombre) || empty($categoria_id)) {
+                    $error = 'Por favor completa el código SKU, nombre y categoría para el nuevo producto.';
+                } elseif ($this->productoModel->existsByCodigo($codigo)) {
+                    $error = 'El código SKU "' . htmlspecialchars($codigo) . '" ya existe en el catálogo. Selecciona "Reponer Producto Existente".';
+                } else {
+                    $nuevoProductoData = [
+                        'categoria_id' => $categoria_id,
+                        'codigo' => $codigo,
+                        'nombre' => $nombre,
+                        'descripcion' => trim($_POST['nuevo_descripcion'] ?? ''),
+                        'precio_compra' => $data['costo_unitario'],
+                        'precio_venta' => $precio_venta,
+                        'stock' => 0,
+                        'stock_minimo' => (int)($_POST['nuevo_stock_minimo'] ?? 5),
+                        'unidad_medida' => $unidad,
+                        'imagen_url' => 'default.png',
+                        'estado' => 1
+                    ];
+                    
+                    if ($this->productoModel->create($nuevoProductoData)) {
+                        $prodCreado = $this->productoModel->query("SELECT id, stock, nombre FROM productos WHERE codigo = :cod LIMIT 1", [':cod' => $codigo])->fetch();
+                        if ($prodCreado) {
+                            $data['producto_id'] = (int)$prodCreado->id;
+                            $productoSeleccionado = $prodCreado;
+                        } else {
+                            $error = 'Error al recuperar el ID del producto recién creado.';
+                        }
+                    } else {
+                        $error = 'Error al guardar el nuevo producto en la base de datos.';
+                    }
+                }
+            } else {
+                $productoSeleccionado = $this->productoModel->getById($data['producto_id']);
+            }
 
             // Manejo de subida de archivo (comprobante)
             if (isset($_FILES['comprobante']) && $_FILES['comprobante']['error'] === UPLOAD_ERR_OK) {
@@ -127,6 +177,7 @@ class MovimientoController extends Controller {
             'data' => $data,
             'productos' => $productos,
             'proveedores' => $proveedores,
+            'categorias' => $categorias,
             'error' => $error
         ]);
     }
