@@ -60,12 +60,12 @@
                     <?php if (!empty($productos)): ?>
                     <label style="cursor: pointer; display: flex; align-items: center; gap: 0.5rem; font-weight: 600; color: var(--primary);">
                         <input type="radio" name="modo_ingreso" value="existente" id="modoExistente" checked onchange="toggleModoIngreso()" style="accent-color: var(--primary); width: 18px; height: 18px;">
-                        <span>🔄 Reponer Stock (Producto Ya Existente)</span>
+                        <span>Reponer Stock (Producto Ya Existente)</span>
                     </label>
                     <?php endif; ?>
                     <label style="cursor: pointer; display: flex; align-items: center; gap: 0.5rem; font-weight: 600; color: var(--success);">
                         <input type="radio" name="modo_ingreso" value="nuevo" id="modoNuevo" <?= (empty($productos)) ? 'checked' : '' ?> onchange="toggleModoIngreso()" style="accent-color: var(--success); width: 18px; height: 18px;">
-                        <span>✨ Registrar Nuevo Producto en el Catálogo</span>
+                        <span>Registrar Nuevo Producto en el Catálogo</span>
                     </label>
                 </div>
             </div>
